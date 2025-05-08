@@ -1,0 +1,21 @@
+class Solution(object):
+    def reverse(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        start=-2**31
+        end=(2**31)-1
+        a=r=0
+        if x<0:
+            s=-1
+        else:
+            s=1
+        x=abs(x)
+        while x:
+            a=x%10
+            r=(r*10)+a
+            x=x//10
+        if r<start or r>end:
+            return 0
+        return r*s
