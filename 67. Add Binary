@@ -1,0 +1,27 @@
+class Solution(object):
+    def addToArrayForm(self, num, k):
+        """
+        :type num: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        r=0
+        for i in num:
+            r=(r*10)+i
+        r+=k
+        return list(map(int,str(r)))
+
+(or)
+
+
+r = 0
+for i in num:
+    r = (r * 10) + i
+r += k
+
+e = []
+while r:
+    e.append(r % 10)
+    r = r // 10
+
+return e[::-1]
