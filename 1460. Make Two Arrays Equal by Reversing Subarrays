@@ -1,0 +1,28 @@
+class Solution {
+    public boolean canBeEqual(int[] target, int[] arr) {
+        for (int i=0;i<arr.length;i++){
+            for (int j=i+1;j<arr.length;j++){
+                if(arr[j]<arr[i]){
+                    int t=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=t;
+                }
+            }
+        }
+        for (int i=0;i<target.length;i++){
+            for (int j=i+1;j<target.length;j++){
+                if(target[j]<target[i]){
+                    int t=target[i];
+                    target[i]=target[j];
+                    target[j]=t;
+                }
+            }
+        }
+        for (int x=0;x<arr.length;x++){
+            if(target[x]!=arr[x]){
+                return false;
+            }
+        }
+        return true;
+    }
+}
