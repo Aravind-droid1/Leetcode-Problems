@@ -1,0 +1,23 @@
+class Solution {
+    public int[] numberGame(int[] nums) {
+        for(int i=0;i<nums.length-1;i++){
+            int t=i;
+            for(int j=i+1;j<nums.length;j++){
+                if(nums[t]>nums[j]){
+                    t=j;
+                }
+            }
+            int c=nums[t];
+            nums[t]=nums[i];
+            nums[i]=c;
+        }
+        for(int x=0;x<nums.length;x+=2){
+            if(x+1<nums.length){
+                int v=nums[x];
+                nums[x]=nums[x+1];
+                nums[x+1]=v;
+            }
+        }
+        return nums;
+    }
+}
