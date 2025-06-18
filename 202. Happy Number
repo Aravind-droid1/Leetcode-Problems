@@ -1,0 +1,22 @@
+import java.util.*;
+class Solution {
+    HashMap<Integer,Integer> hs=new HashMap<>();
+    public boolean isHappy(int n) {
+        
+        while(n!=1){
+            if(hs.containsKey(n)){
+                return false;
+            }
+            hs.put(n,1);
+            int sum=0;
+            int temp=n;
+            while(temp>0){
+                sum+=(temp%10)*(temp%10);
+                temp/=10;
+            }
+            
+                n=sum;
+        }
+        return true;
+    }
+}
