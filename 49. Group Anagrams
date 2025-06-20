@@ -1,0 +1,28 @@
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        HashMap<String,List<String>> hs=new HashMap<>();
+        for(String i:strs){
+            check(i,hs);
+        }
+        List<List<String>> list=new ArrayList<>(hs.values());
+        return list;
+        
+    }
+    public static void check(String s,HashMap<String,List<String>> hs){
+        
+        StringBuffer sb=new StringBuffer(s);
+        for(int i=0;i<s.length()-1;i++){
+            for(int j=i+1;j<s.length();j++){
+                if(sb.charAt(i)>sb.charAt(j)){
+                    char temp=sb.charAt(i);
+                    sb.setCharAt(i,sb.charAt(j));
+                    sb.setCharAt(j,temp);
+                }
+            }
+        }
+        String sorted=sb.toString();
+        List<String> list=hs.getOrDefault(sorted,new ArrayList<>());
+        list.add(s);
+        hs.put(sorted,list);
+    }
+}
