@@ -1,0 +1,24 @@
+class Solution {
+    int start=0;
+    boolean b=true;
+    public boolean isSubsequence(String s, String t) {
+        for(int i=0;i<s.length();i++){
+            if(b){
+                b=check(s.charAt(i),t);
+            }
+            else{
+                return false;
+            }
+        }
+        return b;
+    }
+    public boolean check(char c,String t){
+        for(int j=start;j<t.length();j++){
+            if(c==t.charAt(j)){
+                start=j+1;
+                return true;
+            }
+        }
+        return false;
+    }   
+}
