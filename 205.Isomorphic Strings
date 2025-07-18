@@ -1,0 +1,13 @@
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        int si[]= new int[128];
+        int ti[]= new int[128];
+        if(s.length()!=t.length()){ return false;}
+        for(int i=0;i<s.length();i++){
+            if(si[s.charAt(i)]!=ti[t.charAt(i)]){ return false;}
+            si[s.charAt(i)]=i+1;
+            ti[t.charAt(i)]=i+1;
+        }
+        return true;
+    }
+}
