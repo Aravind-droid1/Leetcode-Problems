@@ -1,0 +1,17 @@
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        int c1=0;
+        int c2=nums.length-1;
+        while(c1<=c2){
+            if(nums[c1]==val){
+                int temp=nums[c1];
+                nums[c1]=nums[c2];
+                nums[c2--]=temp;
+            }
+            else{
+                c1++;
+            }
+        }
+        return c1;
+    }
+}
